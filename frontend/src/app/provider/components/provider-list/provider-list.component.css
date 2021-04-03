@@ -3,3 +3,6 @@ img {
   height: 50px;
   border-radius: 50%;
 }
+button {
+  margin-right: 5px;
+}
