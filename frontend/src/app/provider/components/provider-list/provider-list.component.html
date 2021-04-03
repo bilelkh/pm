@@ -1,3 +1,51 @@
+<nz-card style="width:80%; margin:20px auto; " nzTitle="Recherche des fournisseur">
+    <form nz-form>
+        <div nz-row [nzGutter]="[16, 24]">
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+                    <nz-form-label nzFor="email">Nom</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input name="email" type="email" id="email">
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+                    <nz-form-label nzFor="email">E-mail</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input name="email" type="email" id="email">
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+
+                    <nz-form-label nzFor="email">Adresse</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input name="email" type="email" id="email">
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+                    <nz-form-label nzFor="email">Telephone</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input name="email" type="email" id="email">
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+
+        <div nz-row class="action-button">
+            <button nz-button nzType="primary"><i nz-icon nzType="search"></i>Recherche</button>
+            <button nz-button nzType="danger"><i nz-icon nzType="redo"></i>réinitialiser</button>
+
+        </div>
+    </form>
+</nz-card>
+
 <nz-card style="width:80%; margin:20px auto; " nzTitle="Liste des fournisseur">
     <nz-table #basicTable [nzData]="this.prodivers">
         <thead>

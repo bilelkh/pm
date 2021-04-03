@@ -6,3 +6,7 @@ img {
 button {
   margin-right: 5px;
 }
+
+.action-button {
+  float: right;
+}
