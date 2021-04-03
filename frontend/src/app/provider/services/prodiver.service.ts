@@ -8,8 +8,10 @@ import { environment } from '../../../environments/environment';
 export class ProdiverService {
   constructor(private httpClient: HttpClient) {}
 
-  readAll(): Observable<any> {
-    return this.httpClient.get(`${environment.baseURL}/provider`);
+  readAll(pageIndex, pageSize, query): Observable<any> {
+    return this.httpClient.get(
+      `${environment.baseURL}/provider?pageIndex=${pageIndex}&pageSize=${pageSize}&${query}`
+    );
   }
 
   read(id): Observable<any> {
