@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdiverService } from '../../services/prodiver.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router'; // import router from angular router
 
 @Component({
   selector: 'app-provider-list',
@@ -10,7 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ProviderListComponent implements OnInit {
   constructor(
     private prodiverService: ProdiverService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   searchForm!: FormGroup;
@@ -41,7 +43,6 @@ export class ProviderListComponent implements OnInit {
       .readAll(this.pageIndex, this.pageSize, query)
       .subscribe(
         (res) => {
-          console.log('===res===', res);
           this.prodivers = res.data;
           this.totalItems = res.totalItems;
           this.loading = false;
@@ -56,5 +57,9 @@ export class ProviderListComponent implements OnInit {
     this.searchForm.reset();
     this.pageIndex = 1;
     this.getAllProdivers();
+  }
+
+  nagivateToDetails(id) {
+    this.router.navigateByUrl('provider/provider-details/' + id); // navigate to other page
   }
 }

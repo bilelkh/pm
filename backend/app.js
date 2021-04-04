@@ -49,4 +49,12 @@ app.get("/api/provider", async function (req, res) {
   res.send(result);
 });
 
+app.get("/api/provider/:id", async function (req, res) {
+  const { id } = req.params;
+  let providers = providerSetMock ; 
+  result = providers.filter(o=>Number(o.id )=== Number(id)) ; 
+  if(result) return   res.send(result[0]);
+  res.send(null);
+});
+
 app.listen(3000, () => console.log("Gator app listening on port 3000!"));

@@ -15,7 +15,7 @@ export class ProdiverService {
   }
 
   read(id): Observable<any> {
-    return this.httpClient.get(`${environment.baseURL}/${id}`);
+    return this.httpClient.get(`${environment.baseURL}/provider/${id}`);
   }
 
   create(data): Observable<any> {
@@ -28,13 +28,5 @@ export class ProdiverService {
 
   delete(id): Observable<any> {
     return this.httpClient.delete(`${environment.baseURL}/${id}`);
-  }
-
-  deleteAll(): Observable<any> {
-    return this.httpClient.delete(environment.baseURL);
-  }
-
-  searchByName(name): Observable<any> {
-    return this.httpClient.get(`${environment.baseURL}?name=${name}`);
   }
 }
