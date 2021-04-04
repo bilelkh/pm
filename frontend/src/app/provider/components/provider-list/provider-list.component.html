@@ -73,7 +73,8 @@
                 <td>{{data.network}}</td>
                 <td>{{data.phoneNumber}}</td>
                 <td>
-                    <button nz-button nzType="primary"><i nz-icon nzType="delete" nzTheme="outline"></i></button>
+                    <button nz-button nzType="primary" (click)="showModal(data)"><i nz-icon nzType="delete"
+                            nzTheme="outline"></i></button>
                     <button nz-button nzType="primary"><i nz-icon nzType="form" nzTheme="outline"></i></button>
                     <button nz-button nzType="primary" (click)="nagivateToDetails(data.id)"><i nz-icon
                             nzType="info-circle" nzTheme="outline"></i></button>
@@ -82,3 +83,14 @@
         </tbody>
     </nz-table>
 </nz-card>
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <p>êtes-vous sûr de vouloir supprimer cette fournisseur</p>
+    </ng-container>
+    <ng-container *nzModalFooter>
+        <button nz-button nzType="default" (click)="handleCancel()">Annuler</button>
+        <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Ok</button>
+    </ng-container>
+</nz-modal>

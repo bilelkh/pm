@@ -16,13 +16,13 @@ export class ProviderListComponent implements OnInit {
   ) {}
 
   searchForm!: FormGroup;
-
+  isVisible = false;
   prodivers = [];
   totalItems = 0;
   loading = true;
   pageIndex: number = 1;
   pageSize: number = 5;
-
+  prodiverToDelete;
   ngOnInit(): void {
     this.searchForm = this.fb.group({
       name: [null],
@@ -61,5 +61,22 @@ export class ProviderListComponent implements OnInit {
 
   nagivateToDetails(id) {
     this.router.navigateByUrl('provider/provider-details/' + id); // navigate to other page
+  }
+
+  showModal(prodiver): void {
+    this.isVisible = true;
+    this.prodiverToDelete = prodiver;
+  }
+
+  handleOk(): void {
+    this.prodivers = this.prodivers.filter(
+      (o) => Number(o.id) !== Number(this.prodiverToDelete.id)
+    );
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
   }
 }
